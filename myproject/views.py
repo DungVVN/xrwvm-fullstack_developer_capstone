@@ -317,7 +317,7 @@ def get_dealer_reviews(request, dealer_id):
 def get_all_car_makes(request):
     if request.method == "GET":
         return JsonResponse({
-            "CarModels": CAR_MODELS,
+            "CarModels": [{"CarMake": car["make"], "CarModel": car["model"]} for car in CAR_MODELS],
             "status": "success"
         })
 

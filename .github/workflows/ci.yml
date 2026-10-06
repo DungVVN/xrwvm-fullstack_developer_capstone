@@ -1,4 +1,4 @@
-﻿name: Django React Lint CI
+name: Django React Lint CI
 
 on:
   push:
@@ -74,11 +74,12 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Verify JavaScript source files
+      - name: Lint JavaScript source files
         run: |
-          echo "Verifying JavaScript source files"
+          npx --yes eslint@9 server/frontend/src
           find server/frontend/src -type f \( -name '*.js' -o -name '*.jsx' \) -print
           echo "JavaScript source verification completed successfully"
 
       - name: Complete JavaScript lint job
         run: echo "Lint JavaScript Files job completed successfully"
+
